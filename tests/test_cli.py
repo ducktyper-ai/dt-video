@@ -2,8 +2,8 @@ from pathlib import Path
 
 from typer.testing import CliRunner
 
-from quackvideo.cli import app
-from quackvideo.providers.transcription import FakeTranscriptionProvider
+from dt_video.cli import app
+from dt_video.providers.transcription import FakeTranscriptionProvider
 
 runner = CliRunner()
 
@@ -17,7 +17,7 @@ def test_cli_help() -> None:
 def test_cli_version() -> None:
     result = runner.invoke(app, ["version"])
     assert result.exit_code == 0
-    assert "0.2.0" in result.stdout
+    assert "0.3.0" in result.stdout
 
 
 def test_cli_doctor_json() -> None:
@@ -30,7 +30,7 @@ def test_project_init(tmp_path: Path, monkeypatch: object) -> None:
     monkeypatch.chdir(tmp_path)  # type: ignore[attr-defined]
     result = runner.invoke(app, ["project", "init", "--name", "studio", "--workspace", str(tmp_path / "ws")])
     assert result.exit_code == 0
-    assert (tmp_path / "quackvideo.toml").exists()
+    assert (tmp_path / "dt_video.toml").exists()
 
 
 def test_fake_transcript_is_deterministic() -> None:

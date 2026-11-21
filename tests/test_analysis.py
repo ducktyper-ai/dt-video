@@ -1,9 +1,9 @@
 from pathlib import Path
 
-from quackvideo.analysis.captions import format_ts, slice_transcript, write_srt
-from quackvideo.analysis.moments import chapters_from_transcript, rank_moments
-from quackvideo.domain.enums import ContentProfile
-from quackvideo.domain.models import Transcript, TranscriptSegment
+from dt_video.analysis.captions import format_ts, slice_transcript, write_srt
+from dt_video.analysis.moments import chapters_from_transcript, rank_moments
+from dt_video.domain.enums import ContentProfile
+from dt_video.domain.models import Transcript, TranscriptSegment
 
 
 def _transcript() -> Transcript:

@@ -1,6 +1,6 @@
 [project]
-name = "quackvideo"
-version = "0.2.0"
+name = "dt-video"
+version = "0.3.0"
 description = "Transcript-first content engine for podcasts, talking-head, tutorial, and social video packages."
 readme = "README.md"
 requires-python = ">=3.12"
@@ -29,10 +29,10 @@ llms = ["zeocore[llms]>=0.1.0"]
 all = ["zeocore[llms]>=0.1.0"]
 
 [project.scripts]
-quackvideo = "quackvideo.cli:app"
+dt-video = "dt_video.cli:app"
 
 [project.urls]
-Homepage = "https://github.com/rodmtech/quackvideo"
+Homepage = "https://github.com/ducktyper-ai/dt-video"
 
 [build-system]
 requires = ["hatchling"]
@@ -47,7 +47,7 @@ markers = [
 ]
 
 [tool.coverage.run]
-source = ["quackvideo"]
+source = ["dt_video"]
 branch = true
 
 [tool.ruff]
@@ -65,7 +65,7 @@ quote-style = "double"
 [tool.mypy]
 python_version = "3.12"
 strict = true
-packages = ["quackvideo"]
+packages = ["dt_video"]
 mypy_path = "src"
 exclude = ["examples", "quack-media"]
 

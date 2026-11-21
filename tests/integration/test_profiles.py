@@ -2,10 +2,10 @@ from pathlib import Path
 
 import pytest
 
-from quackvideo.domain.enums import ContentProfile, PipelineStage
-from quackvideo.media.engine import FFmpegEngine
-from quackvideo.media.ops import generate_synthetic_audio, generate_synthetic_video
-from quackvideo.workflows.runner import WorkflowRunner
+from dt_video.domain.enums import ContentProfile, PipelineStage
+from dt_video.media.engine import FFmpegEngine
+from dt_video.media.ops import generate_synthetic_audio, generate_synthetic_video
+from dt_video.workflows.runner import WorkflowRunner
 
 ffmpeg = FFmpegEngine()
 pytestmark = pytest.mark.requires_ffmpeg
@@ -38,8 +38,8 @@ def test_profile_flywheel(tmp_workspace: Path, profile: ContentProfile, kind: st
     assert all(r.status != "error" for r in results)
     review = runner.store.read_json(episode_id, PipelineStage.REVIEW, "review.json")
     moment_id = review["moments"][0]["moment_id"]
-    from quackvideo.capabilities.pipeline import ReviewActionRequest, ReviewApproveTool
-    from quackvideo.capabilities.support import ToolRunner
+    from dt_video.capabilities.pipeline import ReviewActionRequest, ReviewApproveTool
+    from dt_video.capabilities.support import ToolRunner
 
     ToolRunner().run(
         ReviewApproveTool(),

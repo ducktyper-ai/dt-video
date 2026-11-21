@@ -1,10 +1,10 @@
 from pathlib import Path
 
-from quackvideo.capabilities.pipeline import MetricsImportRequest, MetricsImportTool
-from quackvideo.capabilities.support import ToolRunner
-from quackvideo.domain.enums import ContentProfile, MomentStatus, PipelineStage
-from quackvideo.domain.models import Moment, MomentScores, ProjectConfig, ReviewManifest
-from quackvideo.store import ArtifactStore
+from dt_video.capabilities.pipeline import MetricsImportRequest, MetricsImportTool
+from dt_video.capabilities.support import ToolRunner
+from dt_video.domain.enums import ContentProfile, MomentStatus, PipelineStage
+from dt_video.domain.models import Moment, MomentScores, ProjectConfig, ReviewManifest
+from dt_video.store import ArtifactStore
 
 
 def test_metrics_import_csv(tmp_workspace: Path) -> None:
@@ -23,7 +23,7 @@ def test_metrics_import_csv(tmp_workspace: Path) -> None:
 
 
 def test_review_approve_reject(tmp_workspace: Path) -> None:
-    from quackvideo.capabilities.pipeline import (
+    from dt_video.capabilities.pipeline import (
         ReviewActionRequest,
         ReviewApproveTool,
         ReviewRejectTool,

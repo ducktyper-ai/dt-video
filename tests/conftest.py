@@ -2,7 +2,7 @@ from pathlib import Path
 
 import pytest
 
-from quackvideo.media.engine import FFmpegEngine
+from dt_video.media.engine import FFmpegEngine
 
 
 @pytest.fixture

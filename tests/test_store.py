@@ -1,8 +1,8 @@
 from pathlib import Path
 
-from quackvideo.domain.enums import ContentProfile, PipelineStage
-from quackvideo.domain.models import ProjectConfig
-from quackvideo.store import ArtifactStore, sha256_file, slugify
+from dt_video.domain.enums import ContentProfile, PipelineStage
+from dt_video.domain.models import ProjectConfig
+from dt_video.store import ArtifactStore, sha256_file, slugify
 
 
 def test_slugify() -> None:

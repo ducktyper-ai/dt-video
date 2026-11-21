@@ -1,8 +1,8 @@
-# QuackVideo
+# dt-video
 
 Transcript-first content engine for podcasts, talking-head videos, tutorials, and short-form social packages.
 
-QuackVideo turns one recording into a reviewable set of platform-ready files. It does not upload or schedule posts.
+dt-video turns one recording into a reviewable set of platform-ready files. It does not upload or schedule posts.
 
 ## Requirements
 
@@ -18,13 +18,13 @@ make verify
 ## Workflow
 
 ```bash
-quackvideo project init --name studio --workspace workspace
-quackvideo ingest recording.mp4 --profile talking-head --workspace workspace
-quackvideo run EPISODE_ID --until analyze --workspace workspace
-quackvideo review list EPISODE_ID --workspace workspace
-quackvideo review approve EPISODE_ID MOMENT_ID --workspace workspace
-quackvideo compose EPISODE_ID --workspace workspace
-quackvideo package EPISODE_ID --workspace workspace
+dt-video project init --name studio --workspace workspace
+dt-video ingest recording.mp4 --profile talking-head --workspace workspace
+dt-video run EPISODE_ID --until analyze --workspace workspace
+dt-video review list EPISODE_ID --workspace workspace
+dt-video review approve EPISODE_ID MOMENT_ID --workspace workspace
+dt-video compose EPISODE_ID --workspace workspace
+dt-video package EPISODE_ID --workspace workspace
 ```
 
 Profiles: `podcast`, `talking-head`, `tutorial`, `social`.
@@ -52,14 +52,14 @@ Compose and package run only after at least one moment is approved.
 Default transcription is `fake` (deterministic, for tests and dry runs).
 
 ```bash
-export QUACKVIDEO_TRANSCRIPTION_PROVIDER=openai
-export QUACKVIDEO_OPENAI_API_KEY=...
+export DT_VIDEO_TRANSCRIPTION_PROVIDER=openai
+export DT_VIDEO_OPENAI_API_KEY=...
 ```
 
 Analysis defaults to a heuristic ranker that uses transcript windows, duration policy, scene cuts, and imported performance signals.
 
 ```bash
-quackvideo metrics import EPISODE_ID stats.csv --workspace workspace
+dt-video metrics import EPISODE_ID stats.csv --workspace workspace
 ```
 
 CSV columns: `moment_id,platform,views,retention_3s,retention_30s,ctr,comments`.
@@ -67,3 +67,14 @@ CSV columns: `moment_id,platform,views,retention_3s,retention_30s,ctr,comments`.
 ## License
 
 MIT
+
+## Location vlog to YouTube
+
+```bash
+dt-video vlog osmo-day1.mp4 out/day1.mp4 \
+  --broll-dir broll/ --music music/lofi.mp3 --cut 312:340
+```
+
+Cuts dead air and black frames, covers each jump cut with b-roll, ducks background music under speech,
+applies a light colour/sharpen/fade polish, normalizes loudness to -14 LUFS and exports 1080p H.264.
+The edit plan is written next to the output (`day1.plan.json`); use `--plan-only` to inspect it first.

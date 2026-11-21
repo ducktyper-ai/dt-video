@@ -1,6 +1,6 @@
 ## Video Reading Examples
 
-The `video_reading.py` script demonstrates different ways to read and process video files using Quackvideo.
+The `video_reading.py` script demonstrates different ways to read and process video files using dt-video.
 
 ### Basic Usage
 
@@ -32,7 +32,7 @@ python video_reading.py keyframes input_video.mp4
 
 ## Video Writing Examples
 
-The `video_writing.py` script demonstrates different ways to write videos using Quackvideo.
+The `video_writing.py` script demonstrates different ways to write videos using dt-video.
 
 ### Basic Solid Color Video
 
@@ -257,7 +257,7 @@ python frame_manipulation.py features \
 
 # Jupyter Notebook Examples
 
-The `notebook_examples.ipynb` notebook demonstrates interactive usage of Quackvideo in a Jupyter environment.
+The `notebook_examples.ipynb` notebook demonstrates interactive usage of dt-video in a Jupyter environment.
 
 ### Running the Notebook
 
