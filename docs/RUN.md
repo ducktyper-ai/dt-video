@@ -27,7 +27,13 @@ A launchd job is not applicable. Use the release only as an installed tool for t
 | `DT_VIDEO_TRANSCRIPTION_PROVIDER` | transcription provider; default `fake` (offline, no key) |
 
 ## Port and health
-None. The health check is `uv run dt-video doctor` returning exit 0.
+None (no listener, no launchd job). Smoke command, instead of a health URL:
+
+```
+uv run dt-video doctor
+```
+
+Expected: exit 0.
 
 ## Data directory
 The workspace: `./workspace` relative to the working directory by default (`dt-video doctor` prints the resolved path; `--workspace` overrides on pipeline commands). It holds episodes, transcripts and rendered output. Run from a stable absolute directory outside the extracted release so upgrades keep the data.
